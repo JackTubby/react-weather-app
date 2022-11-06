@@ -1,3 +1,5 @@
+import Weather from './scenes/CurrentWeather'
+
 function App() {
   return (
     <main className="App">
@@ -10,6 +12,7 @@ function App() {
           />
         </form>
       </div>
+      <Weather/>
     </main>
   );
 }
