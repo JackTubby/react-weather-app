@@ -4,9 +4,20 @@ import Forcast from './Forcast'
 const Weather = () => {
     return (
         <div>
-            <h1>Weather App</h1>
-            <CurrentWeather />
-            <Forcast />
+            <div>
+                <form>
+                    <input
+                        type="text"
+                        name="location"
+                        value="Search Location"
+                    />
+                </form>
+            </div>
+            <div>
+                <h1>Weather App</h1>
+                <CurrentWeather />
+                <Forcast />
+            </div>
         </div>
     )
 }
