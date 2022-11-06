@@ -1,6 +1,15 @@
 const Forcast = () => {
     return (
-        <div>Forcast</div>
+        <div>
+            <div>
+                <h2>Today</h2>
+            </div>
+            <div>
+                <img/>
+                <p></p>
+                <p></p>
+            </div>
+        </div>
     )
 }
 
