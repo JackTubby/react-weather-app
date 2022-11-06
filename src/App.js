@@ -1,7 +1,16 @@
 function App() {
   return (
-    <div className="App">
-    </div>
+    <main className="App">
+      <div>
+        <form>
+          <input
+            type="text"
+            name="location"
+            value="Search Location"
+          />
+        </form>
+      </div>
+    </main>
   );
 }
 
