@@ -1,4 +1,4 @@
-import Weather from './scenes/CurrentWeather'
+import Weather from './scenes/Weather'
 
 function App() {
   return (
