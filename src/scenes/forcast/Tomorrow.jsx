@@ -4,4 +4,4 @@ const Tomorrow = () => {
     )
 }
 
-export default Tomorrrow
+export default Tomorrow
