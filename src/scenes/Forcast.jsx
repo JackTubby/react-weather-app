@@ -13,7 +13,7 @@ const Forcast = () => {
     activeIndex === index ? className : "";
 
   return (
-    <div>
+    <div className="tabs-wrapper">
       <div className="tabs">
         <button
           className={`tab ${checkActive(1, "active")}`}
@@ -31,14 +31,14 @@ const Forcast = () => {
           className={`tab ${checkActive(3, "active")}`}
           onClick={() => {handleClick(3);}}
         >
-          Seven Days
+          Next 7 Days
         </button>
-        {
+      </div>
+      {
           activeIndex === 1 ? <Today/> :
           activeIndex === 2 ? <Tomorrow /> :
           <SevenDays/>
         }
-      </div>
     </div>
   );
 };
