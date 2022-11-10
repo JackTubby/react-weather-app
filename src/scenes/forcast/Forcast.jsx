@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import "./styles.css";
+import "../styles.css";
 
-import Today from './forcast/Today';
-import Tomorrow from './forcast/Tomorrow';
-import SevenDays from './forcast/SevenDays';
+import Today from './today/Today';
+import Tomorrow from './tomorrow/Tomorrow';
+import SevenDays from './seven-days/SevenDays';
 
 const Forcast = () => {
   // Create state to change tabs and return an index

@@ -1,5 +1,5 @@
 import CurrentWeather from './CurrentWeather'
-import Forcast from './Forcast'
+import Forcast from './forcast/Forcast'
 
 const Weather = () => {
     return (
