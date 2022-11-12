@@ -1,8 +1,11 @@
 import "../styles.css";
+import WeatherBlock from "./WeatherBlock";
 
 const SevenDays = () => {
     return (
-        <div className="forcast-tab">Seven Days</div>
+        <div className="forcast-tab">
+            <WeatherBlock />
+        </div>
     )
 }
 
