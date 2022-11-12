@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "../styles.css";
 
-import Today from './today/Today';
-import Tomorrow from './tomorrow/Tomorrow';
-import SevenDays from './seven-days/SevenDays';
+import Today from './Today';
+import Tomorrow from './Tomorrow';
+import SevenDays from './SevenDays';
 
 const Forcast = () => {
   // Create state to change tabs and return an index
@@ -34,11 +34,13 @@ const Forcast = () => {
           Next 7 Days
         </button>
       </div>
+      <div className="forcast-wrapper">
       {
           activeIndex === 1 ? <Today/> :
           activeIndex === 2 ? <Tomorrow /> :
           <SevenDays/>
         }
+      </div>
     </div>
   );
 };
