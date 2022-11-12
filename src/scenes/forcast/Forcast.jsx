@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles.css";
+import "./forcast.css";
 
 import Today from './Today';
 import Tomorrow from './Tomorrow';

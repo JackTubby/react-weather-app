@@ -1,4 +1,4 @@
-import "../styles.css";
+import "./forcast.css";
 import { BsFillSunFill } from "react-icons/bs";
 
 const WeatherBlock = () => {

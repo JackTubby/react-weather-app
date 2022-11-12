@@ -1,4 +1,4 @@
-import "../styles.css";
+import "./forcast.css";
 import WeatherBlock from "./WeatherBlock";
 
 const SevenDays = () => {
