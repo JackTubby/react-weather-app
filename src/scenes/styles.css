@@ -1,0 +1,41 @@
+.tabs-wrapper {
+  position: fixed;
+  bottom: 0;
+}
+
+.tabs {  
+    display: flex; 
+    width: 100vw;
+  }
+  .tab {  
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background: rgb(22, 22, 23); 
+    padding: 2em 0;  
+    border: none;
+    color: #fff;
+  }
+  .tab:not(:last-child) {
+    border-right: 1px solid (22, 22, 23);  
+  }
+  .tab.active {
+    border-bottom: 3px solid #FE3733;
+    font-weight: bold;
+  }
+  .panel {
+    display: none;
+    background-color: #eaeaea;
+    padding: 10px;
+  }
+  .panel.active {
+    display: block;
+  }
+
+  .forcast-tab {
+    height: 20rem;
+  }
+
+  .forcast-wrapper {
+    background-color: rgb(22, 22, 23);
+  }
