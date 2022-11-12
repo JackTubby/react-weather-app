@@ -1,9 +1,10 @@
 import "../styles.css";
+import { BsFillSunFill } from "react-icons/bs";
 
 const WeatherBlock = () => {
     return (
         <div className="weather-block">
-            <p>Sun Img</p>
+            <p><BsFillSunFill /></p>
             <p>30&#176;</p>
             <p>12AM</p>
         </div>
