@@ -1,0 +1,24 @@
+.current-icon-wrapper {
+    
+}
+
+.current-info-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 20%;
+}
+
+.current-temp {
+    font-size: 90px;
+    line-height: 75px;
+}
+
+.current-sky {
+    font-size: 55px;
+
+}
+
+.current-location {
+    line-height: 140px;
+}
