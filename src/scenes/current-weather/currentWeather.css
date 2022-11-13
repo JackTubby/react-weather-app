@@ -1,5 +1,11 @@
 .current-icon-wrapper {
-    
+    position:absolute;
+    top:-65px;
+    right: -65px;
+}
+
+.current-icon {
+    height: 450px;
 }
 
 .current-info-wrapper {
