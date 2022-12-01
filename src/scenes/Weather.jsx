@@ -4,9 +4,11 @@ import { useEffect, useState } from 'react'
 
 const Weather = () => {
 
+    // Create form data state with an obj and default to empty location string
     const [formData, setFormData] = useState({
         location: "",
     })
+    // Update state with the users input
     function handleChange(event) {
         setFormData(prevFormData => {
             return {
@@ -15,8 +17,6 @@ const Weather = () => {
             }
         })
     }
-
-    console.log(formData)
 
     return (
         <div>
