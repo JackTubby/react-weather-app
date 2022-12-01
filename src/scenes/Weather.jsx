@@ -3,10 +3,11 @@ import Forcast from './forcast/Forcast'
 import { useEffect, useState } from 'react'
 
 const Weather = () => {
-
-    // Create form data state with an obj and default to empty location string
+    
+    // HANDLE FORM
+    // Create form data state with an obj and default it to london
     const [formData, setFormData] = useState({
-        location: "",
+        location: "london",
     })
     // Update state with the users input
     function handleChange(event) {
@@ -16,6 +17,17 @@ const Weather = () => {
                 [event.target.name]: event.target.value
             }
         })
+    }
+    // HANDLE API REQ
+    const [weatherData, setWeatherData] = useState({})
+    function callWeather(){
+        // Get location from state which is added by user
+        let location = formData.location
+        // Url for weather req
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${apiKey}`
+        fetch(url)
+        .then(res => res.json())
+        .then(data => setWeatherData(data))
     }
 
     return (
@@ -32,7 +44,9 @@ const Weather = () => {
                 </form>
             </div>
             <div>
+                <button onClick={callWeather}>SUBMIT</button>
                 <h1>Weather App</h1>
+                <h2>{JSON.stringify(weatherData)}</h2>
                 <CurrentWeather />
                 <Forcast />
             </div>
