@@ -1,5 +1,6 @@
 import CurrentWeather from './current-weather/CurrentWeather'
 import Forcast from './forcast/Forcast'
+import './styles.css';
 import { useEffect, useState } from 'react'
 
 const Weather = () => {
@@ -21,6 +22,7 @@ const Weather = () => {
     // HANDLE API REQ
     const [weatherData, setWeatherData] = useState({})
     function callWeather(){
+        const apiKey = ""
         // Get location from state which is added by user
         let location = formData.location
         // Url for weather req
@@ -33,7 +35,7 @@ const Weather = () => {
     return (
         <div>
             <div>
-                <form>
+                <form className='input--wrapper center'>
                     <input
                         type="text"
                         placeholder="Search Location"
@@ -44,9 +46,10 @@ const Weather = () => {
                 </form>
             </div>
             <div>
-                <button onClick={callWeather}>SUBMIT</button>
-                <h1>Weather App</h1>
-                <h2>{JSON.stringify(weatherData)}</h2>
+                <div className='button--search--wrapper'>
+                    <button className='button--search center' onClick={callWeather}>get weather</button>
+                </div>
+                {/* <h2>{JSON.stringify(weatherData)}</h2> */}
                 <CurrentWeather />
                 <Forcast />
             </div>
