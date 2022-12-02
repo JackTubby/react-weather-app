@@ -18,4 +18,11 @@ input {
     border-radius: 10px;
     text-align: center;
     font-size: 26px;
+    text-transform: capitalize;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
