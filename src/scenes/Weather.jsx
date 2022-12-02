@@ -50,7 +50,7 @@ const Weather = () => {
                     <button className='button--search center' onClick={callWeather}>get weather</button>
                 </div>
                 {/* <h2>{JSON.stringify(weatherData)}</h2> */}
-                <CurrentWeather />
+                <CurrentWeather weather={weatherData} />
                 <Forcast />
             </div>
         </div>
