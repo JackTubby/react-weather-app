@@ -1,0 +1,22 @@
+.input--wrapper {
+    padding-top: 50px;
+}
+
+.button--search--wrapper {
+    padding-top: 20px;
+}
+
+.button--search {
+    padding: 10px 18px;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.button--search:hover {
+    background: #FE3733;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
