@@ -1,30 +1,56 @@
+/* Places icon in the top right of the screen */
 .current-icon-wrapper {
     position:absolute;
     top: 0px;
     right: 0px;
 }
-
 .current-icon {
     height: 450px;
 }
 
+/* Places info in the center of the screen */
 .current-info-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding-top: 200px;
 }
-
 .current-temp {
     font-size: 90px;
     line-height: 75px;
 }
-
 .current-sky {
     font-size: 55px;
 
 }
-
 .current-location {
     line-height: 140px;
+}
+
+/* Reponsive styling for screens upto 1390px */
+@media (max-width: 1390px) {
+    .current-icon {
+        max-height: 300px;
+    }
+}
+
+/* Media queries for weather icon */
+
+/* Makes the icon smaller */
+@media (max-width: 1065px) {
+    .current-icon {
+        height: 200px;
+    }
+}
+/* Places the icon center above the current info wrapper and below the search */
+@media (max-width: 850px) {
+    .current-icon-wrapper {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        padding: 30px 30px;
+    }
+    .current-info-wrapper  {
+        padding-top: 20px;
+    }
 }
