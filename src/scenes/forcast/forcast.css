@@ -2,7 +2,7 @@
 
 /* Forcast.jsx */
 .tabs-wrapper {
-    position: fixed;
+    /* position: fixed; */
     bottom: 0;
 }
 
@@ -53,7 +53,6 @@
 }
 
 /* WeatherBlock.jsx */
-
 .weather-block {
     text-align: center;
     color: #fff;
