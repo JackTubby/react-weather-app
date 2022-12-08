@@ -4,12 +4,9 @@ import './styles.css';
 import { useEffect, useState } from 'react'
 
 const Weather = () => {
-    
     // HANDLE FORM
     // Create form data state with an obj and default it to london
-    const [formData, setFormData] = useState({
-        location: "london",
-    })
+    const [formData, setFormData] = useState({})
     // Update state with the users input
     function handleChange(event) {
         setFormData(prevFormData => {
@@ -21,6 +18,23 @@ const Weather = () => {
     }
     // HANDLE API REQ
     const [weatherData, setWeatherData] = useState({})
+    // Runs the API once on page load to get data to occupy the screen (This will be changed to the users location)
+    useEffect(function() {
+        const apiKey = ""
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=london&units=metric&appid=${apiKey}`
+        fetch(url)
+        // .then(res => res.json())
+        // .then(data => setWeatherData(data))
+        .then(response => {
+            if (response.ok) {
+                console.log(response.status)
+            } else {
+                throw new Error(response.status)
+            }
+        })
+    }, [])
+    console.log(weatherData)
+    // This is run only when the user adds a location and searches for it
     function callWeather(){
         const apiKey = ""
         // Get location from state which is added by user
@@ -31,7 +45,6 @@ const Weather = () => {
         .then(res => res.json())
         .then(data => setWeatherData(data))
     }
-
     return (
         <div>
             <div>
@@ -58,3 +71,4 @@ const Weather = () => {
 }
 
 export default Weather
+// https://javascript.plainenglish.io/js-fetch-are-you-handling-responses-correctly-1df3246b85af
