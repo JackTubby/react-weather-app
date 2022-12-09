@@ -3,12 +3,15 @@ import sunIcon from '../../images/sun-icon.svg';
 
 const CurrentWeather = (props) => {
 
-    // let temp;
-    // if (props.weather.main === undefined) {
-    //     console.log("yep")
-    // } else {
-    //     let temp = props ? `${Math.round(props.weather.main.temp)}°` : "16°"
-    // }
+    const cloudData =  props.weather.clouds.all;
+    let clouds;
+    if(cloudData > 50){
+        clouds = "Cloudy"
+    } else if(cloudData > 10) {
+        clouds = "Partially Cloudy"
+    } else {
+        clouds = "Clear"
+    }
     return (
         <div>
             {/* Icon top right of screen - vary between current weather */}
@@ -16,9 +19,9 @@ const CurrentWeather = (props) => {
                 <img className='current-icon' src={sunIcon} alt="Kiwi standing on oval"/>
             </div>
             <div className='current-info-wrapper'>
-                {/* <h3 className='current-temp'>{`${Math.round(props.weather.main.temp)}°`}</h3> */}
-                <h3 className='current-sky'>Cloudy</h3>
-                <h2 className='current-location'>Paris, France</h2>
+                <h3 className='current-temp'>{`${Math.round(props.weather.main.temp)}°`}</h3>
+                <h3 className='current-sky'>{clouds}</h3>
+                <h2 className='current-location'>{props.weather.name}</h2>
             </div>
         </div>
     )
