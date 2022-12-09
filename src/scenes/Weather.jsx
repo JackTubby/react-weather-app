@@ -6,7 +6,9 @@ import { useEffect, useState } from 'react'
 const Weather = () => {
     // HANDLE FORM
     // Create form data state with an obj and default it to london
-    const [formData, setFormData] = useState({})
+    const [formData, setFormData] = useState({
+        location: "",
+    })
     // Update state with the users input
     function handleChange(event) {
         setFormData(prevFormData => {
@@ -17,23 +19,15 @@ const Weather = () => {
         })
     }
     // HANDLE API REQ
-    const [weatherData, setWeatherData] = useState({})
+    const [weatherData, setWeatherData] = useState()
     // Runs the API once on page load to get data to occupy the screen (This will be changed to the users location)
     useEffect(function() {
         const apiKey = ""
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=london&units=metric&appid=${apiKey}`
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=manchester&units=metric&appid=${apiKey}`
         fetch(url)
-        // .then(res => res.json())
-        // .then(data => setWeatherData(data))
-        .then(response => {
-            if (response.ok) {
-                console.log(response.status)
-            } else {
-                throw new Error(response.status)
-            }
-        })
+        .then(res => res.json())
+        .then(data => setWeatherData(data))
     }, [])
-    console.log(weatherData)
     // This is run only when the user adds a location and searches for it
     function callWeather(){
         const apiKey = ""
@@ -63,7 +57,7 @@ const Weather = () => {
                     <button className='button--search center' onClick={callWeather}>get weather</button>
                 </div>
                 {/* <h2>{JSON.stringify(weatherData)}</h2> */}
-                <CurrentWeather weather={weatherData} />
+                { weatherData ? <CurrentWeather weather={weatherData} /> : null }
                 <Forcast />
             </div>
         </div>
