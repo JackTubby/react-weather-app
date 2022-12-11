@@ -4,7 +4,6 @@ import './styles.css';
 import { useEffect, useState } from 'react'
 
 const Weather = () => {
-    const key = process.env.API_KEY;
     // HANDLE FORM
     // Create form data state with an obj and default it to london
     const [formData, setFormData] = useState({
@@ -23,6 +22,7 @@ const Weather = () => {
     const [weatherData, setWeatherData] = useState()
     // Runs the API once on page load to get data to occupy the screen (This will be changed to the users location)
     useEffect(function() {
+        const key = process.env.API_KEY;
         const apiKey = key
         const url = `https://api.openweathermap.org/data/2.5/weather?q=manchester&units=metric&appid=${apiKey}`
         fetch(url)
@@ -31,6 +31,7 @@ const Weather = () => {
     }, [])
     // This is run only when the user adds a location and searches for it
     function callWeather(){
+        const key = process.env.API_KEY;
         const apiKey = key
         // Get location from state which is added by user
         let location = formData.location
