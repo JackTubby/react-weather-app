@@ -4,8 +4,8 @@ import "./styles.css";
 import { useEffect, useState } from "react";
 
 const Weather = () => {
-  // HANDLE FORM
-  // Create form data state with an obj and default it to london
+  // HANDLE FORM //
+  // Create form data state with defaulted obj
   const [formData, setFormData] = useState({
     location: "",
   });
@@ -18,13 +18,15 @@ const Weather = () => {
       };
     });
   }
-  // HANDLE API REQ
+  // API CALLS //
+  // Create state which will hold api called data
   const [weatherData, setWeatherData] = useState();
-  // Runs the API once on page load to get data to occupy the screen (This will be changed to the users location)
+  const [forcastData, setForcastData] = useState();
+  // PAGE LOAD CURRENT WEATHER REQ //
+  // Runs the API once on page load to get data to occupy the screen (This will be changed to the users location in future update)
   useEffect(function () {
     const key = "";
-    const apiKey = key;
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=manchester&units=metric&appid=${apiKey}`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=london&units=metric&appid=${key}`;
     const fetchData = async () => {
       const response = await fetch(url);
       if (!response.ok) {
@@ -36,23 +38,40 @@ const Weather = () => {
     };
     fetchData();
   }, []);
-  // This is run only when the user adds a location and searches for it
+  // GET WEATHER WHEN USER SEARCH FOR LOCATION //
   async function callWeather() {
     const key = "";
-    const apiKey = key;
-    // Get location from state which is added by user
+    // Get location by user
     let location = formData.location;
-    // Url for weather req
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${apiKey}`;
-    const response = await fetch(url);
-    if (!response.ok) {
-      const message = `An error has occured: ${response.status}`;
+    // Url for current weather
+    const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${key}`;
+    // Get the current weather
+    const currentWeatherResponse = await fetch(currentWeatherUrl);
+    if (!currentWeatherResponse.ok) {
+      // Return this message if an error
+      const message = `An error has occured: ${currentWeatherResponse.status}`;
       throw new Error(message);
     }
-    const weatherDataResponse = await response.json();
+    // Get data if no error
+    const weatherDataResponse = await currentWeatherResponse.json();
+    // Update state with data
     setWeatherData(weatherDataResponse);
+    // GET FORCAST WEATHER //
+    // Get lat & lon from the previous data fetch
+    const lon = weatherData.coord.lon
+    const lat = weatherData.coord.lat
+    // Get forcast data
+    const forcastWeatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${key}`
+    const forcastWeatherResponse = await fetch(forcastWeatherUrl);
+    if (!forcastWeatherResponse.ok) {
+      const message = `An error has occured: ${forcastWeatherResponse.status}`;
+      throw new Error(message);
+    } 
+    const forcastDataResponse = await forcastWeatherResponse.json();
+    // Update state with the forcast data
+    setForcastData(forcastDataResponse);
   }
-  console.log(weatherData);
+
   return (
     <div>
       <div>
@@ -74,7 +93,7 @@ const Weather = () => {
         </div>
         {/* <h2>{JSON.stringify(weatherData)}</h2> */}
         {weatherData ? <CurrentWeather weather={weatherData} /> : null}
-        <Forcast />
+        <Forcast location={formData.location} />
       </div>
     </div>
   );
