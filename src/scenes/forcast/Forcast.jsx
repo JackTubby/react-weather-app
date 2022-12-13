@@ -12,24 +12,6 @@ const Forcast = () => {
   const checkActive = (index, className) =>
     activeIndex === index ? className : "";
 
-  // COORDS
-  const [coords, setCoords] = useState();
-  useEffect(() => {
-    async function getCoords() {
-    const key = "";
-    const location = "london";
-    const url = `http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=1&appid=${key}`;
-      const response = await fetch(url);
-      if (!response.ok) {
-        const message = `An error has occured: ${response.status}`;
-        throw new Error(message);
-      }
-      const coordsResponse = await response.json();
-      setCoords(coordsResponse);
-    };
-    getCoords();
-  }, []);
-
   return (
     <div className="tabs-wrapper">
       <div className="tabs">
