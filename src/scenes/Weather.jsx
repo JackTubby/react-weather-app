@@ -61,7 +61,7 @@ const Weather = () => {
     const lon = weatherData.coord.lon
     const lat = weatherData.coord.lat
     // Get forcast data
-    const forcastWeatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${key}`
+    const forcastWeatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${key}`
     const forcastWeatherResponse = await fetch(forcastWeatherUrl);
     if (!forcastWeatherResponse.ok) {
       const message = `An error has occured: ${forcastWeatherResponse.status}`;
@@ -93,7 +93,7 @@ const Weather = () => {
         </div>
         {/* <h2>{JSON.stringify(weatherData)}</h2> */}
         {weatherData ? <CurrentWeather weather={weatherData} /> : null}
-        <Forcast location={formData.location} />
+        {forcastData ? <Forcast forcast={forcastData} /> : null}
       </div>
     </div>
   );
