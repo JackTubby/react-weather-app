@@ -18,12 +18,12 @@ const Forcast = (props) => {
     },
     dayTwo: {
       temp: props.forcast.list[8].main.temp,
-      feels_like: props.forcast.list[16].main.feels_like,
-      pressure: props.forcast.list[16].main.pressure,
-      wind: props.forcast.list[16].wind.speed,
-      cloud: props.forcast.list[16].weather[0].main,
-      cloud_type: props.forcast.list[16].weather[0].description,
-      date_time: props.forcast.list[16].dt_txt,
+      feels_like: props.forcast.list[8].main.feels_like,
+      pressure: props.forcast.list[8].main.pressure,
+      wind: props.forcast.list[8].wind.speed,
+      cloud: props.forcast.list[8].weather[0].main,
+      cloud_type: props.forcast.list[8].weather[0].description,
+      date_time: props.forcast.list[8].dt_txt,
     },
     dayThree: {
       temp: props.forcast.list[16].main.temp,
@@ -53,7 +53,6 @@ const Forcast = (props) => {
       date_time: props.forcast.list[32].dt_txt,
     },
   }
-
 
   // Create state to change tabs and return an index
   const [activeIndex, setActiveIndex] = useState(1);
