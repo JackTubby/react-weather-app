@@ -7,6 +7,11 @@ import SevenDays from "./SevenDays";
 
 const Forcast = (props) => {
   const forcastValues = {
+    locationInfo: {
+      sunrise: props.forcast.city.sunrise,
+      sunset: props.forcast.city.sunset,
+      location: props.forcast.city.name,
+    },
     dayOne: {
       temp: props.forcast.list[0].main.temp,
       feels_like: props.forcast.list[0].main.feels_like,
@@ -90,9 +95,9 @@ const Forcast = (props) => {
       </div>
       <div className="forcast-wrapper">
         {activeIndex === 1 ? (
-          <Today today={forcastValues.dayOne} />
+          <Today today={forcastValues.dayOne} locationInfo={forcastValues.locationInfo} />
         ) : activeIndex === 2 ? (
-          <Tomorrow tomorrow={forcastValues.dayTwo} />
+          <Tomorrow tomorrow={forcastValues.dayTwo} locationInfo={forcastValues.locationInfo} />
         ) : (
           <SevenDays fiveDays={forcastValues} />
         )}
