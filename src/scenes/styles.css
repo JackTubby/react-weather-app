@@ -15,7 +15,7 @@
 }
 
 .button--search:hover {
-    background: #FE3733;
+    background: #33c4fe;
     cursor: pointer;
     transition: 0.5s;
 }
