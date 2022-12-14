@@ -15,6 +15,7 @@ const Forcast = (props) => {
     dayOne: {
       temp: props.forcast.list[0].main.temp,
       feels_like: props.forcast.list[0].main.feels_like,
+      humidity: props.forcast.list[0].main.humidity,
       pressure: props.forcast.list[0].main.pressure,
       wind: props.forcast.list[0].wind.speed,
       cloud: props.forcast.list[0].weather[0].main,
@@ -24,6 +25,7 @@ const Forcast = (props) => {
     dayTwo: {
       temp: props.forcast.list[8].main.temp,
       feels_like: props.forcast.list[8].main.feels_like,
+      humidity: props.forcast.list[8].main.humidity,
       pressure: props.forcast.list[8].main.pressure,
       wind: props.forcast.list[8].wind.speed,
       cloud: props.forcast.list[8].weather[0].main,
@@ -33,6 +35,7 @@ const Forcast = (props) => {
     dayThree: {
       temp: props.forcast.list[16].main.temp,
       feels_like: props.forcast.list[16].main.feels_like,
+      humidity: props.forcast.list[16].main.humidity,
       pressure: props.forcast.list[16].main.pressure,
       wind: props.forcast.list[16].wind.speed,
       cloud: props.forcast.list[16].weather[0].main,
@@ -42,6 +45,7 @@ const Forcast = (props) => {
     dayFour: {
       temp: props.forcast.list[24].main.temp,
       feels_like: props.forcast.list[24].main.feels_like,
+      humidity: props.forcast.list[24].main.humidity,
       pressure: props.forcast.list[24].main.pressure,
       wind: props.forcast.list[24].wind.speed,
       cloud: props.forcast.list[24].weather[0].main,
@@ -51,6 +55,7 @@ const Forcast = (props) => {
     dayFive: {
       temp: props.forcast.list[32].main.temp,
       feels_like: props.forcast.list[32].main.feels_like,
+      humidity: props.forcast.list[32].main.humidity,
       pressure: props.forcast.list[32].main.pressure,
       wind: props.forcast.list[32].wind.speed,
       cloud: props.forcast.list[32].weather[0].main,
