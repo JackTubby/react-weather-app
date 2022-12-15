@@ -58,26 +58,25 @@ const Weather = () => {
     setWeatherData(weatherDataResponse);
   }
   // GET FORCAST WEATHER //
-  async function callForcast() {
-    const key = "";
-    // Get lat & lon from the previous data fetch
-    const lon = weatherData.coord.lon
-    const lat = weatherData.coord.lat
-    // Get forcast data
-    const forcastWeatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${key}`
-    const forcastWeatherResponse = await fetch(forcastWeatherUrl);
-    if (!forcastWeatherResponse.ok) {
-      const message = `An error has occured: ${forcastWeatherResponse.status}`;
-      throw new Error(message);
-    } 
-    const forcastDataResponse = await forcastWeatherResponse.json();
-    // Update state with the forcast data
-    setForcastData(forcastDataResponse);
-  }
-  function callWeatherAndForcast() {
-    callForcast();
-    callWeather();
-  }
+  useEffect (() => {
+    async function callForcast() {
+      const key = "";
+      // Get lat & lon from the previous data fetch
+      const lon = weatherData.coord.lon
+      const lat = weatherData.coord.lat
+      // Get forcast data
+      const forcastWeatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${key}`
+      const forcastWeatherResponse = await fetch(forcastWeatherUrl);
+      if (!forcastWeatherResponse.ok) {
+        const message = `An error has occured: ${forcastWeatherResponse.status}`;
+        throw new Error(message);
+      } 
+      const forcastDataResponse = await forcastWeatherResponse.json();
+      // Update state with the forcast data
+      setForcastData(forcastDataResponse);
+    }
+    callForcast()
+  }, [callWeather])
   return (
     <div>
       <div>
@@ -93,7 +92,7 @@ const Weather = () => {
       </div>
       <div>
         <div className="button--search--wrapper">
-          <button className="button--search center" onClick={callWeatherAndForcast}>
+          <button className="button--search center" onClick={callWeather}>
             get weather
           </button>
         </div>
