@@ -56,7 +56,10 @@ const Weather = () => {
     const weatherDataResponse = await currentWeatherResponse.json();
     // Update state with data
     setWeatherData(weatherDataResponse);
-    // GET FORCAST WEATHER //
+  }
+  // GET FORCAST WEATHER //
+  async function callForcast() {
+    const key = "";
     // Get lat & lon from the previous data fetch
     const lon = weatherData.coord.lon
     const lat = weatherData.coord.lat
@@ -71,7 +74,10 @@ const Weather = () => {
     // Update state with the forcast data
     setForcastData(forcastDataResponse);
   }
-
+  function callWeatherAndForcast() {
+    callForcast();
+    callWeather();
+  }
   return (
     <div>
       <div>
@@ -87,7 +93,7 @@ const Weather = () => {
       </div>
       <div>
         <div className="button--search--wrapper">
-          <button className="button--search center" onClick={callWeather}>
+          <button className="button--search center" onClick={callWeatherAndForcast}>
             get weather
           </button>
         </div>
