@@ -38,33 +38,27 @@ const Weather = () => {
     };
     fetchData();
   }, []);
-  // GET WEATHER WHEN USER SEARCH FOR LOCATION //
-  async function callWeather() {
+  // GET CURRENT WEATHER & FORCAST WHEN USER SEARCH FOR LOCATION //
+  async function getWeather() {
     const key = "";
-    // Get location by user
-    let location = formData.location;
-    // Url for current weather
-    const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${key}`;
-    // Get the current weather
-    const currentWeatherResponse = await fetch(currentWeatherUrl);
-    if (!currentWeatherResponse.ok) {
-      // Return this message if an error
-      const message = `An error has occured: ${currentWeatherResponse.status}`;
-      throw new Error(message);
-    }
-    // Get data if no error
-    const weatherDataResponse = await currentWeatherResponse.json();
-    // Update state with data
-    setWeatherData(weatherDataResponse);
-  }
-  // GET FORCAST WEATHER //
-  useEffect (() => {
-    async function callForcast() {
-      const key = "";
-      // Get lat & lon from the previous data fetch
-      const lon = weatherData.coord.lon
-      const lat = weatherData.coord.lat
-      // Get forcast data
+      // Get location by user
+      let location = formData.location;
+      // Url for current weather
+      const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${key}`;
+      // Get the current weather
+      const currentWeatherResponse = await fetch(currentWeatherUrl);
+      if (!currentWeatherResponse.ok) {
+        // Return this message if an error
+        const message = `An error has occured: ${currentWeatherResponse.status}`;
+        throw new Error(message);
+      }
+      const weatherDataResponse = await currentWeatherResponse.json();
+      // Update state with data
+      setWeatherData(weatherDataResponse);
+      // Get lon & lat from the previous fetch
+      const lon = weatherDataResponse.coord.lon
+      const lat = weatherDataResponse.coord.lat
+      // Get forcast data with lon & lat coords
       const forcastWeatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${key}`
       const forcastWeatherResponse = await fetch(forcastWeatherUrl);
       if (!forcastWeatherResponse.ok) {
@@ -74,9 +68,7 @@ const Weather = () => {
       const forcastDataResponse = await forcastWeatherResponse.json();
       // Update state with the forcast data
       setForcastData(forcastDataResponse);
-    }
-    callForcast()
-  }, [callWeather])
+  }
   return (
     <div>
       <div>
@@ -92,7 +84,7 @@ const Weather = () => {
       </div>
       <div>
         <div className="button--search--wrapper">
-          <button className="button--search center" onClick={callWeather}>
+          <button className="button--search center" onClick={getWeather}>
             get weather
           </button>
         </div>
