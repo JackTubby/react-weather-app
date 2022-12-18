@@ -1,5 +1,5 @@
 import "./forcast.css";
-import WeatherBlock from "./WeatherBlock";
+import WeatherBlock from "../WeatherBlock";
 
 const SevenDays = () => {
     return (

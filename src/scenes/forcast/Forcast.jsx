@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./forcast.css";
 
-import Info from "./CurrentWeatherInfo"
-import Today from "./Today";
-import Tomorrow from "./Tomorrow";
-import SevenDays from "./SevenDays";
+import Info from "./current-weather-info/CurrentWeatherInfo"
+import Today from "./today-forcast/Today";
+import Tomorrow from "./tomorrow-forcast/Tomorrow";
+import SevenDays from "./five-day-forcast/SevenDays";
 
 const Forcast = (props) => {
   const forcastValues = {
