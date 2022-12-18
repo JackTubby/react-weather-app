@@ -1,4 +1,5 @@
-import "./forcast.css";
+import "../forcast.css";
+import "./current.css"
 import { BsFillSunFill } from "react-icons/bs";
 
 const CurrentWeatherInfo = (props) => {

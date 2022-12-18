@@ -1,4 +1,5 @@
-import "./forcast.css";
+import "../forcast.css";
+import "./today.css"
 
 const Today = () => {
 
