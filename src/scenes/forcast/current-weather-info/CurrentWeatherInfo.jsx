@@ -1,13 +1,17 @@
 import "../forcast.css";
 import "./current.css"
-import { BsFillSunFill } from "react-icons/bs";
+import { CiTempHigh } from "react-icons/ci";
+import { BsWind, BsCloudyFill } from "react-icons/bs";
+import { WiHumidity } from "react-icons/wi";
+import { FaWeight } from "react-icons/fa"
+import{ GrOverview } from "react-icons/gr"
 
 const CurrentWeatherInfo = (props) => {
   return (
     <div className="info--tab">
       <div className="info--card-wrapper">
         <div className="card--icon">
-          <BsFillSunFill />
+          <CiTempHigh />
         </div>
         <div className="card--info-wrapper">
           <div className="info">
@@ -18,7 +22,7 @@ const CurrentWeatherInfo = (props) => {
       </div>
       <div className="info--card-wrapper">
         <div className="card--icon">
-          <BsFillSunFill />
+          <BsWind />
         </div>
         <div className="card--info-wrapper">
           <div className="info">
@@ -32,7 +36,7 @@ const CurrentWeatherInfo = (props) => {
       </div>
       <div className="info--card-wrapper">
         <div className="card--icon">
-          <BsFillSunFill />
+          <WiHumidity />
         </div>
         <div className="card--info-wrapper">
           <div className="info">
@@ -43,7 +47,7 @@ const CurrentWeatherInfo = (props) => {
       </div>
       <div className="info--card-wrapper">
         <div className="card--icon">
-          <BsFillSunFill />
+          <FaWeight />
         </div>
         <div className="card--info-wrapper">
           <div className="info">
@@ -57,7 +61,7 @@ const CurrentWeatherInfo = (props) => {
       </div>
       <div className="info--card-wrapper">
         <div className="card--icon">
-          <BsFillSunFill />
+          <BsCloudyFill />
         </div>
         <div className="card--info-wrapper">
           <div className="info">
@@ -68,7 +72,7 @@ const CurrentWeatherInfo = (props) => {
       </div>
       <div className="info--card-wrapper">
         <div className="card--icon">
-          <BsFillSunFill />
+          <GrOverview />
         </div>
         <div className="card--info-wrapper">
           <div className="info">
