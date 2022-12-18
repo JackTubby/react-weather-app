@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./forcast.css";
 
+import Info from "./CurrentWeatherInfo"
 import Today from "./Today";
 import Tomorrow from "./Tomorrow";
 import SevenDays from "./SevenDays";
@@ -79,7 +80,7 @@ const Forcast = (props) => {
             handleClick(1);
           }}
         >
-          Today
+          More Info
         </button>
         <button
           className={`tab ${checkActive(2, "active")}`}
@@ -87,7 +88,7 @@ const Forcast = (props) => {
             handleClick(2);
           }}
         >
-          Tomorrow
+          Today
         </button>
         <button
           className={`tab ${checkActive(3, "active")}`}
@@ -95,17 +96,28 @@ const Forcast = (props) => {
             handleClick(3);
           }}
         >
+          Tomorrow
+        </button>
+        <button
+          className={`tab ${checkActive(4, "active")}`}
+          onClick={() => {
+            handleClick(4);
+          }}
+        >
           Next 7 Days
         </button>
       </div>
       <div className="forcast-wrapper">
         {activeIndex === 1 ? (
-          <Today today={forcastValues.dayOne} locationInfo={forcastValues.locationInfo} />
-        ) : activeIndex === 2 ? (
+          <Info today={forcastValues.dayOne} locationInfo={forcastValues.locationInfo} />
+          ) : activeIndex === 2 ? (
+          <Today />
+          ) : activeIndex === 3 ? (
           <Tomorrow tomorrow={forcastValues.dayTwo} locationInfo={forcastValues.locationInfo} />
-        ) : (
-          <SevenDays fiveDays={forcastValues} />
-        )}
+          ) : (
+          <SevenDays fiveDays={forcastValues} /> 
+        )
+        }
       </div>
     </div>
   );
