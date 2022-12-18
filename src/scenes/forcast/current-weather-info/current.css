@@ -1,10 +1,10 @@
 /* Today .jsx */
-.today--tab {
+.info--tab {
     height: 20rem;
     display: flex;
 }
 
-.today--card-wrapper {
+.info--card-wrapper {
     background-color: #33c4fe;
     margin: 20px;
     padding: 20px;
@@ -33,4 +33,9 @@
     color: white;
     font-size: 18px;
     font-family: 'Nunito', sans-serif;
+}
+
+i {
+    color: white;
+    font-size: 15px;
 }
