@@ -1,0 +1,36 @@
+/* Today .jsx */
+.today--tab {
+    height: 20rem;
+    display: flex;
+}
+
+.today--card-wrapper {
+    background-color: #33c4fe;
+    margin: 20px;
+    padding: 20px;
+    width: 230px;
+    max-height: 140px;
+    border-radius: 10px;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+    transition: all 0.2s;
+    text-align: center;
+}
+
+.card--icon {
+    font-size: 24px;
+}
+
+.card--info-wrapper {
+    padding-top: 25px;
+    display: flex;
+}
+
+.info {
+    line-height: 30px;
+}
+
+.info p {
+    color: white;
+    font-size: 18px;
+    font-family: 'Nunito', sans-serif;
+}
