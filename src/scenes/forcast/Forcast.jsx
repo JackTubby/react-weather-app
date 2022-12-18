@@ -22,6 +22,7 @@ const Forcast = (props) => {
       cloud: props.forcast.list[0].weather[0].main,
       cloud_type: props.forcast.list[0].weather[0].description,
       date_time: props.forcast.list[0].dt_txt,
+      visibility: props.forcast.list[0].visibility,
     },
     dayTwo: {
       temp: props.forcast.list[8].main.temp,
@@ -32,6 +33,7 @@ const Forcast = (props) => {
       cloud: props.forcast.list[8].weather[0].main,
       cloud_type: props.forcast.list[8].weather[0].description,
       date_time: props.forcast.list[8].dt_txt,
+      visibility: props.forcast.list[8].visibility,
     },
     dayThree: {
       temp: props.forcast.list[16].main.temp,
@@ -42,6 +44,7 @@ const Forcast = (props) => {
       cloud: props.forcast.list[16].weather[0].main,
       cloud_type: props.forcast.list[16].weather[0].description,
       date_time: props.forcast.list[16].dt_txt,
+      visibility: props.forcast.list[16].visibility,
     },
     dayFour: {
       temp: props.forcast.list[24].main.temp,
@@ -52,6 +55,7 @@ const Forcast = (props) => {
       cloud: props.forcast.list[24].weather[0].main,
       cloud_type: props.forcast.list[24].weather[0].description,
       date_time: props.forcast.list[24].dt_txt,
+      visibility: props.forcast.list[24].visibility,
     },
     dayFive: {
       temp: props.forcast.list[32].main.temp,
@@ -62,6 +66,7 @@ const Forcast = (props) => {
       cloud: props.forcast.list[32].weather[0].main,
       cloud_type: props.forcast.list[32].weather[0].description,
       date_time: props.forcast.list[32].dt_txt,
+      visibility: props.forcast.list[32].visibility,
     },
   }
 

@@ -61,8 +61,19 @@ const CurrentWeatherInfo = (props) => {
         </div>
         <div className="card--info-wrapper">
           <div className="info">
-            <p>{props.today.cloud_type}</p>
+            <p>{props.today.cloud}</p>
             <p>Cloud Type</p>
+          </div>
+        </div>
+      </div>
+      <div className="info--card-wrapper">
+        <div className="card--icon">
+          <BsFillSunFill />
+        </div>
+        <div className="card--info-wrapper">
+          <div className="info">
+            <p>{props.today.visibility / 1000}<i>km</i></p>
+            <p>Visibility</p>
           </div>
         </div>
       </div>
