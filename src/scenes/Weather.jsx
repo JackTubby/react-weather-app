@@ -35,6 +35,19 @@ const Weather = () => {
       }
       const weatherDataResponse = await response.json();
       setWeatherData(weatherDataResponse);
+      // Get lon & lat from the previous fetch
+      const lon = weatherDataResponse.coord.lon
+      const lat = weatherDataResponse.coord.lat
+      // Get forcast data with lon & lat coords
+      const forcastWeatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${key}`
+      const forcastWeatherResponse = await fetch(forcastWeatherUrl);
+      if (!forcastWeatherResponse.ok) {
+        const message = `An error has occured: ${forcastWeatherResponse.status}`;
+        throw new Error(message);
+      } 
+      const forcastDataResponse = await forcastWeatherResponse.json();
+      // Update state with the forcast data
+      setForcastData(forcastDataResponse);
     };
     fetchData();
   }, []);
