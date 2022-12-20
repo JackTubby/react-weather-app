@@ -7,6 +7,25 @@ import Tomorrow from "./tomorrow-forcast/Tomorrow";
 import SevenDays from "./five-day-forcast/SevenDays";
 
 const Forcast = (props) => {
+
+  // Loop over the array and get each item
+  function checkDates() {
+    const forcastArray = props.forcast.list // Get all array
+    const date = new Date(); // Get current date
+    const date1 = date.getDate(); // Get just todays date
+    forcastArray.forEach(forcast => {
+      let get_current_dt = forcast.dt_txt // Get current dt
+      let split_dt = get_current_dt.split(" ") // Split d & t at the space
+      let get_full_date = split_dt[0] // Get just the date
+      let get_date = get_full_date.slice(8) // Remove year & month and get just date
+      if( get_date ==  date1){
+        console.log("YEP")
+      } else {
+        console.log("Nope")
+      }
+    })
+  }
+
   const forcastValues = {
     locationInfo: {
       sunrise: props.forcast.city.sunrise,
