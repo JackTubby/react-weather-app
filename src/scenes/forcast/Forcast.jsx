@@ -8,6 +8,7 @@ import SevenDays from "./five-day-forcast/SevenDays";
 
 const Forcast = (props) => {
 
+/// TODAYS FORCAST
 // Init state to an empty array
 const [todayForcast, setTodayForcast] = useState([])
 useEffect(function () {
@@ -32,6 +33,11 @@ useEffect(function () {
     setTodayForcast(newForecasts)
 }, []);
 
+/// TOMORROWS FORCAST
+
+/// NEXT 5 DAYS FORCAST
+
+/// FORCAST VALUES
   const forcastValues = {
     locationInfo: {
       sunrise: props.forcast.city.sunrise,
