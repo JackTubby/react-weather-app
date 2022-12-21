@@ -17,7 +17,7 @@ useEffect(function () {
   const date1 = date.getDate(); // Get just todays date
   // We need to initialize the array outside of the loop, otherwise it gets overwritten
   // each iteration and we're back at square one.
-  const newForecasts = []; 
+  const newTodayForecasts = []; 
   // Loop over the array and get each item
   forcastArray.forEach(forcast => {
     let get_current_dt = forcast.dt_txt // Get d & t from the obj
@@ -26,15 +26,32 @@ useEffect(function () {
     let get_date = get_full_date.slice(8) // Remove year & month and get just day
     if( get_date ==  date1){
         // Append the current forcast to the newForescasts array defined earlier
-        newForecasts.push(forcast);
+        newTodayForecasts.push(forcast);
     }
   })
     // After the loop is finished, set the state to the newForecasts
-    setTodayForcast(newForecasts)
+    setTodayForcast(newTodayForecasts)
 }, []);
 
 /// TOMORROWS FORCAST
-
+const [tomorrowForcast, setTomorrowForcast] = useState([])
+useEffect(function () {
+  const forcastArray = props.forcast.list
+  const date = new Date();
+  const date1 = date.getDate();
+  const date2 = date1 + 1
+  const newTomorrowForecasts = []; 
+  forcastArray.forEach(forcast => {
+    let get_current_dt = forcast.dt_txt
+    let split_dt = get_current_dt.split(" ")
+    let get_full_date = split_dt[0]
+    let get_date = get_full_date.slice(8)
+    if( get_date ==  date2){
+        newTomorrowForecasts.push(forcast);
+    }
+  })
+    setTomorrowForcast(newTomorrowForecasts)
+}, []);
 /// NEXT 5 DAYS FORCAST
 
 /// FORCAST VALUES
@@ -149,7 +166,7 @@ useEffect(function () {
           ) : activeIndex === 2 ? (
           <Today todayForcast={todayForcast} />
           ) : activeIndex === 3 ? (
-          <Tomorrow tomorrow={forcastValues.dayTwo} locationInfo={forcastValues.locationInfo} />
+          <Tomorrow tomorrowForcast={tomorrowForcast} />
           ) : (
           <SevenDays fiveDays={forcastValues} /> 
         )
