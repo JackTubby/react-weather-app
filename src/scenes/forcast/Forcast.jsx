@@ -182,7 +182,7 @@ useEffect(function () {
           ) : activeIndex === 3 ? (
           <Tomorrow tomorrowForcast={tomorrowForcast} />
           ) : (
-          <SevenDays fiveDays={forcastValues} /> 
+          <SevenDays fiveDays={nextFiveForcast} /> 
         )
         }
       </div>
