@@ -8,23 +8,29 @@ import SevenDays from "./five-day-forcast/SevenDays";
 
 const Forcast = (props) => {
 
+// Init state to an empty array
+const [todayForcast, setTodayForcast] = useState([])
+useEffect(function () {
+  const forcastArray = props.forcast.list // Get array containing all forcasts
+  const date = new Date(); // Get current date
+  const date1 = date.getDate(); // Get just todays date
+  // We need to initialize the array outside of the loop, otherwise it gets overwritten
+  // each iteration and we're back at square one.
+  const newForecasts = []; 
   // Loop over the array and get each item
-  function checkDates() {
-    const forcastArray = props.forcast.list // Get all array
-    const date = new Date(); // Get current date
-    const date1 = date.getDate(); // Get just todays date
-    forcastArray.forEach(forcast => {
-      let get_current_dt = forcast.dt_txt // Get current dt
-      let split_dt = get_current_dt.split(" ") // Split d & t at the space
-      let get_full_date = split_dt[0] // Get just the date
-      let get_date = get_full_date.slice(8) // Remove year & month and get just date
-      if( get_date ==  date1){
-        console.log("YEP")
-      } else {
-        console.log("Nope")
-      }
-    })
-  }
+  forcastArray.forEach(forcast => {
+    let get_current_dt = forcast.dt_txt // Get d & t from the obj
+    let split_dt = get_current_dt.split(" ") // Split d & t at the space
+    let get_full_date = split_dt[0] // Get just the date
+    let get_date = get_full_date.slice(8) // Remove year & month and get just day
+    if( get_date ==  date1){
+        // Append the current forcast to the newForescasts array defined earlier
+        newForecasts.push(forcast);
+    }
+  })
+    // After the loop is finished, set the state to the newForecasts
+    setTodayForcast(newForecasts)
+}, []);
 
   const forcastValues = {
     locationInfo: {
@@ -135,7 +141,7 @@ const Forcast = (props) => {
         {activeIndex === 1 ? (
           <Info today={forcastValues.dayOne} locationInfo={forcastValues.locationInfo} />
           ) : activeIndex === 2 ? (
-          <Today />
+          <Today todayForcast={todayForcast} />
           ) : activeIndex === 3 ? (
           <Tomorrow tomorrow={forcastValues.dayTwo} locationInfo={forcastValues.locationInfo} />
           ) : (
