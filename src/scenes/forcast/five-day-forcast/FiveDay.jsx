@@ -2,7 +2,7 @@ import "../forcast.css";
 import "./fiveday.css"
 import WeatherBlock from "../WeatherBlock";
 
-const SevenDays = () => {
+const FiveDay = () => {
     return (
         <div className="forcast-tab">
             <WeatherBlock />
@@ -10,4 +10,4 @@ const SevenDays = () => {
     )
 }
 
-export default SevenDays
+export default FiveDay

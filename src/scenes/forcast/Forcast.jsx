@@ -4,7 +4,7 @@ import "./forcast.css";
 import Info from "./current-weather-info/CurrentWeatherInfo"
 import Today from "./today-forcast/Today";
 import Tomorrow from "./tomorrow-forcast/Tomorrow";
-import SevenDays from "./five-day-forcast/SevenDays";
+import FiveDay from "./five-day-forcast/FiveDay";
 
 const Forcast = (props) => {
 
@@ -182,7 +182,7 @@ useEffect(function () {
           ) : activeIndex === 3 ? (
           <Tomorrow tomorrowForcast={tomorrowForcast} />
           ) : (
-          <SevenDays fiveDays={nextFiveForcast} /> 
+          <FiveDay fiveDays={nextFiveForcast} /> 
         )
         }
       </div>
