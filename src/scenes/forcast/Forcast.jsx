@@ -53,7 +53,21 @@ useEffect(function () {
     setTomorrowForcast(newTomorrowForecasts)
 }, []);
 /// NEXT 5 DAYS FORCAST
-
+const [nextFiveForcast, setNextFiveForcast] = useState([])
+useEffect(function () {
+  const forcastArray = props.forcast.list
+  const time = "00:00:00"
+  const newFiveDayForecasts = []; 
+  forcastArray.forEach(forcast => {
+    let get_current_dt = forcast.dt_txt
+    let split_dt = get_current_dt.split(" ")
+    let get_full_time = split_dt[1]
+    if( get_full_time ==  time){
+        newFiveDayForecasts.push(forcast);
+    }
+  })
+    setNextFiveForcast(newFiveDayForecasts)
+}, []);
 /// FORCAST VALUES
   const forcastValues = {
     locationInfo: {
