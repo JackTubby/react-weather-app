@@ -8,7 +8,6 @@ const FiveDay = (props) => {
         const split_dt = get_dt.split(" ")
         const get_date = split_dt[0]
         const date = get_date.slice(8)
-        console.log(date)
         return (
             <WeatherBlock {...forcast} d_or_t={date} />
             )
