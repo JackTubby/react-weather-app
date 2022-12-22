@@ -1,15 +1,18 @@
+import React, { useState } from "react";
 import "../forcast.css";
 import "./fiveday.css"
 import WeatherBlock from "../WeatherBlock";
 
 const FiveDay = (props) => {
+
     const forcasts = props.fiveDays.map(forcast => {
+        // Get date
         const get_dt = forcast.dt_txt
         const split_dt = get_dt.split(" ")
         const get_date = split_dt[0]
-        const date = get_date.slice(8)
+        const day = get_date.slice(8)
         return (
-            <WeatherBlock {...forcast} d_or_t={date} />
+            <WeatherBlock {...forcast} d_or_t={day} />
             )
         })
     return (
