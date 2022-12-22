@@ -43,17 +43,26 @@
 .forcast-tab {
     height: 20rem;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 75rem;
 }
 
 /* WeatherBlock.jsx */
-.weather-block {
+.weather--block {
     text-align: center;
-    color: #fff;
-    padding: 0 10px;
+    max-width: 45px;
+    max-height: 100px;
+    padding: 15px;
+    background: linear-gradient(175deg, rgb(174,72,233) 17%, rgb(213,104,212) 70%, rgb(238,170,163) 198%);
+    border-radius: 25px;
 }
 
-.weather-block p {
-    padding: 8px 0;
+.weather--block p, .weather--block :first-child {
+    color: #fff;
+    padding: 4px 0;
+}
+/* 9E5DEA */
+
+.icon {
+    font-size: 22px;
 }
