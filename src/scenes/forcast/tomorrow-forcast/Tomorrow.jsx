@@ -1,6 +1,6 @@
 import "../forcast.css";
 import "./tomorrow.css"
-import WeatherBlock from "../WeatherBlock";
+import WeatherBlock from "../weather-block/WeatherBlock";
 
 const Tomorrow = (props) => {
     const forcasts = props.tomorrowForcast.map(forcast => {

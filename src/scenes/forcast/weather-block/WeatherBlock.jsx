@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-import "./forcast.css";
+import "../forcast.css";
+import "./weatherblock.css"
 import { BsFillSunFill } from "react-icons/bs";
 
 const WeatherBlock = (props) => {

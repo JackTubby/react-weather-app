@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../forcast.css";
 import "./fiveday.css"
-import WeatherBlock from "../WeatherBlock";
+import WeatherBlock from "../weather-block/WeatherBlock";
 
 const FiveDay = (props) => {
 
