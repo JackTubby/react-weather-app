@@ -7,6 +7,7 @@ import Tomorrow from "./tomorrow-forcast/Tomorrow";
 import FiveDay from "./five-day-forcast/FiveDay";
 
 const Forcast = (props) => {
+
 /// TODAYS FORCAST
 // Init state to an empty array
 const [todayForcast, setTodayForcast] = useState([])
@@ -50,7 +51,7 @@ useEffect(function () {
     }
   })
     setTomorrowForcast(newTomorrowForecasts)
-}, []);
+}, [props.forcast]);
 /// NEXT 5 DAYS FORCAST
 const [nextFiveForcast, setNextFiveForcast] = useState([])
 useEffect(function () {
@@ -70,7 +71,7 @@ useEffect(function () {
     }
   })
     setNextFiveForcast(newFiveDayForecasts)
-}, []);
+}, [props.forcast]);
 
   // Create state to change tabs and return an index
   const [activeIndex, setActiveIndex] = useState(1);
