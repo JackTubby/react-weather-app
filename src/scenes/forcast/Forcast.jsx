@@ -73,70 +73,6 @@ useEffect(function () {
     setNextFiveForcast(newFiveDayForecasts)
 }, []);
 
-/// FORCAST VALUES
-  const forcastValues = {
-    locationInfo: {
-      sunrise: props.forcast.city.sunrise,
-      sunset: props.forcast.city.sunset,
-      location: props.forcast.city.name,
-    },
-    dayOne: {
-      temp: props.forcast.list[0].main.temp,
-      feels_like: props.forcast.list[0].main.feels_like,
-      humidity: props.forcast.list[0].main.humidity,
-      pressure: props.forcast.list[0].main.pressure,
-      wind: props.forcast.list[0].wind.speed,
-      cloud: props.forcast.list[0].weather[0].main,
-      cloud_type: props.forcast.list[0].weather[0].description,
-      date_time: props.forcast.list[0].dt_txt,
-      visibility: props.forcast.list[0].visibility,
-    },
-    dayTwo: {
-      temp: props.forcast.list[8].main.temp,
-      feels_like: props.forcast.list[8].main.feels_like,
-      humidity: props.forcast.list[8].main.humidity,
-      pressure: props.forcast.list[8].main.pressure,
-      wind: props.forcast.list[8].wind.speed,
-      cloud: props.forcast.list[8].weather[0].main,
-      cloud_type: props.forcast.list[8].weather[0].description,
-      date_time: props.forcast.list[8].dt_txt,
-      visibility: props.forcast.list[8].visibility,
-    },
-    dayThree: {
-      temp: props.forcast.list[16].main.temp,
-      feels_like: props.forcast.list[16].main.feels_like,
-      humidity: props.forcast.list[16].main.humidity,
-      pressure: props.forcast.list[16].main.pressure,
-      wind: props.forcast.list[16].wind.speed,
-      cloud: props.forcast.list[16].weather[0].main,
-      cloud_type: props.forcast.list[16].weather[0].description,
-      date_time: props.forcast.list[16].dt_txt,
-      visibility: props.forcast.list[16].visibility,
-    },
-    dayFour: {
-      temp: props.forcast.list[24].main.temp,
-      feels_like: props.forcast.list[24].main.feels_like,
-      humidity: props.forcast.list[24].main.humidity,
-      pressure: props.forcast.list[24].main.pressure,
-      wind: props.forcast.list[24].wind.speed,
-      cloud: props.forcast.list[24].weather[0].main,
-      cloud_type: props.forcast.list[24].weather[0].description,
-      date_time: props.forcast.list[24].dt_txt,
-      visibility: props.forcast.list[24].visibility,
-    },
-    dayFive: {
-      temp: props.forcast.list[32].main.temp,
-      feels_like: props.forcast.list[32].main.feels_like,
-      humidity: props.forcast.list[32].main.humidity,
-      pressure: props.forcast.list[32].main.pressure,
-      wind: props.forcast.list[32].wind.speed,
-      cloud: props.forcast.list[32].weather[0].main,
-      cloud_type: props.forcast.list[32].weather[0].description,
-      date_time: props.forcast.list[32].dt_txt,
-      visibility: props.forcast.list[32].visibility,
-    },
-  }
-
   // Create state to change tabs and return an index
   const [activeIndex, setActiveIndex] = useState(1);
   const handleClick = (index) => setActiveIndex(index);
@@ -181,7 +117,7 @@ useEffect(function () {
       </div>
       <div className="forcast-wrapper">
         {activeIndex === 1 ? (
-          <Info today={forcastValues.dayOne} locationInfo={forcastValues.locationInfo} />
+          <Info />
           ) : activeIndex === 2 ? (
           <Today todayForcast={todayForcast} />
           ) : activeIndex === 3 ? (
