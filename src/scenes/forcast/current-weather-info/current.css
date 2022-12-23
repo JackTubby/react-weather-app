@@ -7,7 +7,7 @@
 }
 
 .info--card-wrapper {
-    background-color: #33c4fe;
+    background: linear-gradient(175deg, rgb(174,72,233) 17%, rgb(213,104,212) 70%, rgb(238,170,163) 198%);
     margin: 20px;
     padding: 20px;
     max-width: 230px;
@@ -20,16 +20,16 @@
 }
 
 .card--icon {
-    font-size: 24px;
+    font-size: 26px;
 }
 
 .card--info-wrapper {
-    padding-top: 25px;
+    padding-top: 20px;
     display: flex;
 }
 
 .info {
-    line-height: 30px;
+    line-height: 35px;
 }
 
 .info p {
