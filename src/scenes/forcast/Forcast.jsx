@@ -57,7 +57,7 @@ const [nextFiveForcast, setNextFiveForcast] = useState([])
 useEffect(function () {
   const forcastArray = props.forcast.list
   const night_time = "00:00:00"
-  const day_time = "15:00:00"
+  const day_time = "12:00:00"
   const newFiveDayForecasts = []; 
   forcastArray.forEach(forcast => {
     let get_current_dt = forcast.dt_txt
