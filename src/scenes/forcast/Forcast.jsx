@@ -31,7 +31,7 @@ useEffect(function () {
   })
     // After the loop is finished, set the state to the newForecasts
     setTodayForcast(newTodayForecasts)
-}, []);
+}, [props.forcast]);
 
 /// TOMORROWS FORCAST
 const [tomorrowForcast, setTomorrowForcast] = useState([])
