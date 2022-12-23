@@ -2,20 +2,33 @@
     padding-top: 50px;
 }
 
+.input {
+    color: black;
+    border: 1px solid rgb(191, 187, 187);
+
+}
+
+.input:focus {
+    outline: 2px solid rgb(213,104,212);
+}
+
 .button--search--wrapper {
     padding-top: 20px;
 }
 
 .button--search {
-    padding: 10px 18px;
+    min-width: 60px;
+    min-height: 45px;
+    padding: 10px;
     border: 1px solid #fff;
     border-radius: 10px;
     text-transform: capitalize;
     text-align: center;
+    background-color: rgb(213,104,212);
 }
 
 .button--search:hover {
-    background: #33c4fe;
+    background: rgb(174,72,233);
     cursor: pointer;
     transition: 0.5s;
 }
