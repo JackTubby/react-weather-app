@@ -12,16 +12,16 @@ const WeatherBlock = (props) => {
             const get_day = props.d_or_t
             const second_char = props.d_or_t.charAt(1)
             if (second_char == 1) {
-                setCheckIfDateOrTime({...props, d_or_t: `${get_day}st`})            
+                setCheckIfDateOrTime({...checkIfDateOrTime, d_or_t: `${get_day}st`})            
             }
             else if (second_char == 2) {
-                setCheckIfDateOrTime({...props, d_or_t: `${get_day}nd`})
+                setCheckIfDateOrTime({...checkIfDateOrTime, d_or_t: `${get_day}nd`})
             }
             else if (second_char == 3) {
-                setCheckIfDateOrTime({...props, d_or_t: `${get_day}rd`})
+                setCheckIfDateOrTime({...checkIfDateOrTime, d_or_t: `${get_day}rd`})
             }
             else {
-                setCheckIfDateOrTime({...props, d_or_t: `${get_day}th`})
+                setCheckIfDateOrTime({...checkIfDateOrTime, d_or_t: `${get_day}th`})
             }
         }
       }, []);
