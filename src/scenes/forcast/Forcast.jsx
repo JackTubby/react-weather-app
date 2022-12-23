@@ -46,7 +46,7 @@ useEffect(function () {
     let split_dt = get_current_dt.split(" ")
     let get_full_date = split_dt[0]
     let get_date = get_full_date.slice(8)
-    if( get_date ==  date2){
+    if( get_date ==  date2){     
         newTomorrowForecasts.push(forcast);
     }
   })
@@ -56,18 +56,23 @@ useEffect(function () {
 const [nextFiveForcast, setNextFiveForcast] = useState([])
 useEffect(function () {
   const forcastArray = props.forcast.list
-  const time = "00:00:00"
+  const night_time = "00:00:00"
+  const day_time = "15:00:00"
   const newFiveDayForecasts = []; 
   forcastArray.forEach(forcast => {
     let get_current_dt = forcast.dt_txt
     let split_dt = get_current_dt.split(" ")
     let get_full_time = split_dt[1]
-    if( get_full_time ==  time){
+    if( get_full_time ==  night_time ){
         newFiveDayForecasts.push(forcast);
+    }
+    if ( get_full_time ==  day_time ){
+      newFiveDayForecasts.push(forcast);
     }
   })
     setNextFiveForcast(newFiveDayForecasts)
 }, []);
+
 /// FORCAST VALUES
   const forcastValues = {
     locationInfo: {

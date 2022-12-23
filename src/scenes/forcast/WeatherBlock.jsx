@@ -24,12 +24,11 @@ const WeatherBlock = (props) => {
             }
         }
       }, []);
-    
-
     return (
         <div className="weather--block">
             <p>{Math.round(props.main.temp)}&#176;</p>
             <p><BsFillSunFill className="icon" /></p>
+            <p>{checkIfDateOrTime.time}</p>
             <p>{checkIfDateOrTime.d_or_t}</p>
         </div>
     )

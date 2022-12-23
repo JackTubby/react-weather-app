@@ -11,9 +11,10 @@ const FiveDay = (props) => {
         const get_dt = forcast.dt_txt
         const split_dt = get_dt.split(" ")
         const get_date = split_dt[0]
+        const get_time = split_dt[1]
         const day = get_date.slice(8)
         return (
-            <WeatherBlock {...fiveDayObj} d_or_t={day} />
+            <WeatherBlock {...fiveDayObj} d_or_t={day} time={get_time} />
             )
         })
     return (
