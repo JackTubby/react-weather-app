@@ -7,7 +7,6 @@ import Tomorrow from "./tomorrow-forcast/Tomorrow";
 import FiveDay from "./five-day-forcast/FiveDay";
 
 const Forcast = (props) => {
-
 /// TODAYS FORCAST
 // Init state to an empty array
 const [todayForcast, setTodayForcast] = useState([])
@@ -117,7 +116,7 @@ useEffect(function () {
       </div>
       <div className="forcast-wrapper">
         {activeIndex === 1 ? (
-          <Info />
+          <Info weather={props.weather} />
           ) : activeIndex === 2 ? (
           <Today todayForcast={todayForcast} />
           ) : activeIndex === 3 ? (

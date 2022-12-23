@@ -15,7 +15,7 @@ const CurrentWeatherInfo = (props) => {
         </div>
         <div className="card--info-wrapper">
           <div className="info">
-            <p>{Math.round(props.today.feels_like)}&#176;</p>
+            <p>{Math.round(props.weather.main.feels_like)}&#176;</p>
             <p>Feels Like</p>
           </div>
         </div>
@@ -27,7 +27,7 @@ const CurrentWeatherInfo = (props) => {
         <div className="card--info-wrapper">
           <div className="info">
             <p>
-              {props.today.wind}
+              {props.weather.wind.speed}
               <i>mph</i>
             </p>
             <p>Wind</p>
@@ -40,7 +40,7 @@ const CurrentWeatherInfo = (props) => {
         </div>
         <div className="card--info-wrapper">
           <div className="info">
-            <p>{props.today.humidity}%</p>
+            <p>{props.weather.main.humidity}%</p>
             <p>Humidity</p>
           </div>
         </div>
@@ -52,7 +52,7 @@ const CurrentWeatherInfo = (props) => {
         <div className="card--info-wrapper">
           <div className="info">
             <p>
-              {props.today.pressure}
+              {props.weather.main.pressure}
               <i>mb</i>
             </p>
             <p>Pressure</p>
@@ -65,7 +65,7 @@ const CurrentWeatherInfo = (props) => {
         </div>
         <div className="card--info-wrapper">
           <div className="info">
-            <p>{props.today.cloud}</p>
+            <p>{props.weather.weather[0].description}</p>
             <p>Cloud Type</p>
           </div>
         </div>
@@ -76,7 +76,7 @@ const CurrentWeatherInfo = (props) => {
         </div>
         <div className="card--info-wrapper">
           <div className="info">
-            <p>{props.today.visibility / 1000}<i>km</i></p>
+            <p>{props.weather.visibility / 1000}<i>km</i></p>
             <p>Visibility</p>
           </div>
         </div>

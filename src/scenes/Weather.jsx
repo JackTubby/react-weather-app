@@ -87,6 +87,7 @@ const Weather = () => {
       <div>
         <form className="input--wrapper center">
           <input
+            className="input"
             type="text"
             placeholder="Search Location"
             onChange={handleChange}
@@ -103,7 +104,7 @@ const Weather = () => {
         </div>
         {/* <h2>{JSON.stringify(weatherData)}</h2> */}
         {weatherData ? <CurrentWeather weather={weatherData} /> : null}
-        {forcastData ? <Forcast forcast={forcastData} /> : null}
+        {forcastData ? <Forcast weather={weatherData} forcast={forcastData} /> : null}
       </div>
     </div>
   );
