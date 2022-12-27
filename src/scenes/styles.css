@@ -1,5 +1,17 @@
-.input--wrapper {
-    padding-top: 50px;
+.outter-wrapper {
+    margin-top: 15px;
+    display: flex;
+}
+
+.search-wrapper {
+    display: flex;
+}
+
+.input-wrapper {
+    margin-right: 20px;
+}
+.button-search-wrapper {
+    margin-left: 20px;
 }
 
 .input-weather {
