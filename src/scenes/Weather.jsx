@@ -1,6 +1,7 @@
 import CurrentWeather from "./current-weather/CurrentWeather";
 import Forcast from "./forcast/Forcast";
 import "./styles.css";
+import sunIcon from "../images/sun-icon.svg";
 import { useEffect, useState } from "react";
 
 const Weather = () => {
@@ -107,15 +108,13 @@ const Weather = () => {
         {forcastData ? <Forcast weather={weatherData} forcast={forcastData} /> : null}
       </div>
       <div className="colour-mode">
-            <label class="toggle" for="myToggle">
-              <input
-                class="toggle__input"
-                name=""
-                type="checkbox"
-                id="myToggle"
-              />
-              <div class="toggle__fill"></div>
-            </label>
+      <div className="current-icon-wrapper">
+            <img
+              className="current-icon"
+              src={sunIcon}
+              alt="Kiwi standing on oval"
+            />
+          </div>
           </div>
     </div>
   );
