@@ -2,10 +2,16 @@
     padding-top: 50px;
 }
 
-.input {
+.input-weather {
     color: black;
     border: 1px solid rgb(191, 187, 187);
-
+    height: 50px;
+    min-width: 400px;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 26px;
+    text-transform: capitalize;
 }
 
 .input:focus {
