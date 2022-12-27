@@ -1,56 +1,116 @@
-/* Places icon in the top right of the screen */
-.current-icon-wrapper {
-    position:absolute;
-    top: 0px;
-    right: 0px;
-}
-.current-icon {
-    height: 450px;
-}
 
-/* Places info in the center of the screen */
-.current-info-wrapper {
+/*** Outer Style ***/
+.outer-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-top: 75px;
-}
-.current-temp {
-    font-size: 90px;
-    line-height: 75px;
-}
-.current-sky {
-    font-size: 55px;
-
-}
-.current-location {
-    line-height: 140px;
+    margin-bottom: 100px;
 }
 
-/* Reponsive styling for screens upto 1390px */
-@media (max-width: 1390px) {
-    .current-icon {
-        max-height: 300px;
-    }
+/*** Heading ***/
+.header-wrapper {
+    position: relative;
+    display: flex;
+    margin-top: 40px;
+}
+.location {
+    font-size: 35px;
+    margin-right: 50px;
+}
+/* toggler styling bottom of style sheet */
+
+.main-wrapper {
+    margin: 30px 0;
+    text-align: center;
+}
+/* Main Styling */
+.date {
+    width: 170px;
+    border-radius: 50px;
+    margin-bottom: -10px;
+    z-index: 1;
+    font-size: 18px;
+    background: rgba(255, 255, 255, 0.9);
+    position: relative;
+}
+.square {
+    background: linear-gradient(180deg, rgba(174,72,233,1) 10%, rgba(213,104,212,1) 45%, rgba(238,170,163,1) 86%);
+    border-radius: 60px; 
+    width: 450px;
+    height: 450px;
+    box-shadow: 10px 15px 34px 8px rgba(0,0,0,0.1);
+}
+.weather-type {
+    font-size: 32px;
+    padding-top: 50px;
+    font-weight: 600;
+    background: -webkit-linear-gradient(rgb(255, 255, 255), rgb(212, 211, 211));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.temp {
+    font-size: 220px;
+    background: -webkit-linear-gradient(rgb(255, 255, 255), rgb(175, 175, 175));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-/* Media queries for weather icon */
-
-/* Makes the icon smaller */
-@media (max-width: 1065px) {
-    .current-icon {
-        height: 200px;
-    }
+/* Extra Styling */
+.extra-wrapper {
+    display: flex;
+    background-color: #fff;
+    padding: 30px;
+    min-width: 450px;
+    border-radius: 20px;
+    text-align: center;
 }
-/* Places the icon center above the current info wrapper and below the search */
-@media (max-width: 850px) {
-    .current-icon-wrapper {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        padding: 30px 30px;
-    }
-    .current-info-wrapper  {
-        padding-top: 20px;
-    }
+.extra-icon {
+    font-size: 26px;
+}
+.extra-text {
+    font-weight: 600;
+}
+.extra-heading {
+    color: rgba(0, 0, 0, 0.50);
+}
+
+/* Toggler */
+/* https://dev.to/dcodeyt/creating-a-css-only-toggle-switch-5cg3 */
+.toggle {
+    --width: 40px;
+    --height: calc(var(--width) / 2);
+    --border-radius: calc(var(--height) / 2);
+
+    display: inline-block;
+    cursor: pointer;
+}
+.toggle-input {
+    display: none;
+}
+.toggle-fill {
+    position: relative;
+    width: var(--width);
+    height: var(--height);
+    border-radius: var(--border-radius);
+    background: #000000;
+    transition: background 0.2s;
+}
+.toggle-fill::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: var(--height);
+    width: var(--height);
+    background: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    border-radius: var(--border-radius);
+    transition: transform 0.2s;
+}
+.toggle-input:checked ~ .toggle-fill {
+    background: #ffffff;
+}
+
+.toggle-input:checked ~ .toggle-fill::after {
+    transform: translateX(var(--height));
 }
