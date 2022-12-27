@@ -87,7 +87,7 @@ const Weather = () => {
       <div>
         <form className="input--wrapper center">
           <input
-            className="input"
+            className="input-weather"
             type="text"
             placeholder="Search Location"
             onChange={handleChange}
@@ -106,6 +106,17 @@ const Weather = () => {
         {weatherData ? <CurrentWeather weather={weatherData} /> : null}
         {forcastData ? <Forcast weather={weatherData} forcast={forcastData} /> : null}
       </div>
+      <div className="colour-mode">
+            <label class="toggle" for="myToggle">
+              <input
+                class="toggle__input"
+                name=""
+                type="checkbox"
+                id="myToggle"
+              />
+              <div class="toggle__fill"></div>
+            </label>
+          </div>
     </div>
   );
 };
