@@ -39,3 +39,11 @@
     transition: 0.5s;
 }
 
+.current-icon {
+    width: 450px;
+    height: 450px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
