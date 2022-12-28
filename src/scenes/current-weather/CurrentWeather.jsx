@@ -17,14 +17,14 @@ const CurrentWeather = (props) => {
         <div className="header-wrapper">
           <div className="location">London</div>
           <div className="colour-mode">
-            <label class="toggle" for="myToggle">
+            <label className="toggle">
               <input
-                class="toggle-input"
+                className="toggle-input"
                 name=""
                 type="checkbox"
                 id="myToggle"
               />
-              <div class="toggle-fill"></div>
+              <div className="toggle-fill"></div>
             </label>
           </div>
         </div>
