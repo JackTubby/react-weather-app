@@ -37,15 +37,15 @@ const Weather = () => {
       const weatherDataResponse = await response.json();
       setWeatherData(weatherDataResponse);
       // Get lon & lat from the previous fetch
-      const lon = weatherDataResponse.coord.lon
-      const lat = weatherDataResponse.coord.lat
+      const lon = weatherDataResponse.coord.lon;
+      const lat = weatherDataResponse.coord.lat;
       // Get forcast data with lon & lat coords
-      const forcastWeatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${key}`
+      const forcastWeatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${key}`;
       const forcastWeatherResponse = await fetch(forcastWeatherUrl);
       if (!forcastWeatherResponse.ok) {
         const message = `An error has occured: ${forcastWeatherResponse.status}`;
         throw new Error(message);
-      } 
+      }
       const forcastDataResponse = await forcastWeatherResponse.json();
       // Update state with the forcast data
       setForcastData(forcastDataResponse);
@@ -55,67 +55,68 @@ const Weather = () => {
   // GET CURRENT WEATHER & FORCAST WHEN USER SEARCH FOR LOCATION //
   async function getWeather() {
     const key = "";
-      // Get location by user
-      let location = formData.location;
-      // Url for current weather
-      const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${key}`;
-      // Get the current weather
-      const currentWeatherResponse = await fetch(currentWeatherUrl);
-      if (!currentWeatherResponse.ok) {
-        // Return this message if an error
-        const message = `An error has occured: ${currentWeatherResponse.status}`;
-        throw new Error(message);
-      }
-      const weatherDataResponse = await currentWeatherResponse.json();
-      // Update state with data
-      setWeatherData(weatherDataResponse);
-      // Get lon & lat from the previous fetch
-      const lon = weatherDataResponse.coord.lon
-      const lat = weatherDataResponse.coord.lat
-      // Get forcast data with lon & lat coords
-      const forcastWeatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${key}`
-      const forcastWeatherResponse = await fetch(forcastWeatherUrl);
-      if (!forcastWeatherResponse.ok) {
-        const message = `An error has occured: ${forcastWeatherResponse.status}`;
-        throw new Error(message);
-      } 
-      const forcastDataResponse = await forcastWeatherResponse.json();
-      // Update state with the forcast data
-      setForcastData(forcastDataResponse);
+    // Get location by user
+    let location = formData.location;
+    // Url for current weather
+    const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${key}`;
+    // Get the current weather
+    const currentWeatherResponse = await fetch(currentWeatherUrl);
+    if (!currentWeatherResponse.ok) {
+      // Return this message if an error
+      const message = `An error has occured: ${currentWeatherResponse.status}`;
+      throw new Error(message);
+    }
+    const weatherDataResponse = await currentWeatherResponse.json();
+    // Update state with data
+    setWeatherData(weatherDataResponse);
+    // Get lon & lat from the previous fetch
+    const lon = weatherDataResponse.coord.lon;
+    const lat = weatherDataResponse.coord.lat;
+    // Get forcast data with lon & lat coords
+    const forcastWeatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${key}`;
+    const forcastWeatherResponse = await fetch(forcastWeatherUrl);
+    if (!forcastWeatherResponse.ok) {
+      const message = `An error has occured: ${forcastWeatherResponse.status}`;
+      throw new Error(message);
+    }
+    const forcastDataResponse = await forcastWeatherResponse.json();
+    // Update state with the forcast data
+    setForcastData(forcastDataResponse);
   }
   return (
     <div>
-      <div>
-        <form className="input--wrapper center">
-          <input
-            className="input-weather"
-            type="text"
-            placeholder="Search Location"
-            onChange={handleChange}
-            name="location"
-            value={formData.location}
-          />
-        </form>
-      </div>
-      <div>
-        <div className="button--search--wrapper">
-          <button className="button--search center" onClick={getWeather}>
-            get weather
-          </button>
+      <div className="outter-wrapper">
+        <div className="search-wrapper">
+          <div className="input-wrapper">
+            <form className="center">
+              <input
+                className="input-weather"
+                type="text"
+                placeholder="Search Location"
+                onChange={handleChange}
+                name="location"
+                value={formData.location}
+              />
+            </form>
+          </div>
+          <div className="button-search-wrapper">
+            <button className="button--search center" onClick={getWeather}>
+              get weather
+            </button>
+          </div>
         </div>
-        {/* <h2>{JSON.stringify(weatherData)}</h2> */}
-        {weatherData ? <CurrentWeather weather={weatherData} /> : null}
-        {forcastData ? <Forcast weather={weatherData} forcast={forcastData} /> : null}
       </div>
-      <div className="colour-mode">
+      {weatherData ? <CurrentWeather weather={weatherData} /> : null}
+      {forcastData ? (
+        <Forcast weather={weatherData} forcast={forcastData} />
+      ) : null}
       <div className="current-icon-wrapper">
-            <img
-              className="current-icon"
-              src={sunIcon}
-              alt="Kiwi standing on oval"
-            />
-          </div>
-          </div>
+        <img
+          className="current-icon"
+          src={sunIcon}
+          alt="Kiwi standing on oval"
+        />
+      </div>
     </div>
   );
 };
