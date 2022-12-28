@@ -26,7 +26,10 @@ const Weather = () => {
   // PAGE LOAD CURRENT WEATHER REQ //
   // Runs the API once on page load to get data to occupy the screen (This will be changed to the users location in future update)
   useEffect(function () {
-    const key = "";
+    // Because this is just a front-end application keys are on show. Best practice is to hide these keys but due to the type of project and the limitations of the key
+    // I have chosen not to setup a backend to hide them.
+    // The key has a limit of 60 calls/minute & 1,000,000 calls/month.
+    const key = "3a52db80030a5d5c497398f8e877305e";
     const url = `https://api.openweathermap.org/data/2.5/weather?q=london&units=metric&appid=${key}`;
     const fetchData = async () => {
       const response = await fetch(url);
@@ -54,7 +57,7 @@ const Weather = () => {
   }, []);
   // GET CURRENT WEATHER & FORCAST WHEN USER SEARCH FOR LOCATION //
   async function getWeather() {
-    const key = "";
+    const key = "3a52db80030a5d5c497398f8e877305e";
     // Get location by user
     let location = formData.location;
     // Url for current weather
