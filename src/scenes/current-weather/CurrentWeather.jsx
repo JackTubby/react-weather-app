@@ -2,6 +2,7 @@ import "./currentWeather.css";
 import { CiTempHigh } from "react-icons/ci";
 
 const CurrentWeather = (props) => {
+  console.log(props)
   const cloudData = props.weather.clouds.all;
   let clouds;
   if (cloudData > 50) {
@@ -11,11 +12,22 @@ const CurrentWeather = (props) => {
   } else {
     clouds = "Clear";
   }
+
+// Turn unix into organised todays date
+  const unix_timestamp = props.weather.dt;
+  const date = new Date(unix_timestamp * 1000);
+  const date_to_string = date.toString()
+  const split_date = date_to_string.split(" ")
+  const get_day = split_date[0]
+  const get_date = split_date[2]
+  const get_month = split_date[1]
+  const today_date = `${get_day} ${get_date} ${get_month}`
+
   return (
     <div>
       <div className="outer-wrapper">
         <div className="header-wrapper">
-          <div className="location">London</div>
+          <div className="location">{props.weather.name}</div>
           <div className="colour-mode">
             <label className="toggle">
               <input
@@ -29,10 +41,10 @@ const CurrentWeather = (props) => {
           </div>
         </div>
         <div className="main-wrapper">
-          <div className="date">Monday, 12 June</div>
+          <div className="date">{today_date}</div>
           <div className="square">
-            <div className="weather-type">Thunderstorm</div>
-            <div className="temp">25</div>
+            <div className="weather-type">{props.weather.weather[0].description}</div>
+            <div className="temp">{Math.round(props.weather.main.temp)}</div>
           </div>
         </div>
         <div className="extra-wrapper">
@@ -40,21 +52,21 @@ const CurrentWeather = (props) => {
             <div className="extra-icon">
               <CiTempHigh color="white" />
             </div>
-            <div className="extra-text">9mph</div>
+            <div className="extra-text">{Math.round(props.weather.wind.speed)}mph</div>
             <div className="extra-heading">Wind</div>
           </div>
           <div className="humidity-wrapper">
             <div className="extra-icon">
               <CiTempHigh />
             </div>
-            <div className="extra-text">30%</div>
+            <div className="extra-text">{props.weather.main.humidity}%</div>
             <div className="extra-heading">Humdidity</div>
           </div>
           <div className="visibility-wrapper">
             <div className="extra-icon">
               <CiTempHigh />
             </div>
-            <div className="extra-text">1.4km</div>
+            <div className="extra-text">{props.weather.visibility / 1000}km</div>
             <div className="extra-heading">Visibility</div>
           </div>
         </div>
