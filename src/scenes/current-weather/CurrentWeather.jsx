@@ -48,6 +48,13 @@ const CurrentWeather = (props) => {
           </div>
         </div>
         <div className="extra-wrapper">
+        <div className="feels-wrapper">
+            <div className="extra-icon">
+              <CiTempHigh />
+            </div>
+            <div className="extra-text">{Math.round(props.weather.main.feels_like)}</div>
+            <div className="extra-heading">Feels Like</div>
+          </div>
           <div className="wind-wrapper">
             <div className="extra-icon">
               <CiTempHigh color="white" />
@@ -68,6 +75,13 @@ const CurrentWeather = (props) => {
             </div>
             <div className="extra-text">{props.weather.visibility / 1000}km</div>
             <div className="extra-heading">Visibility</div>
+          </div>
+          <div className="pressure-wrapper">
+            <div className="extra-icon">
+              <CiTempHigh />
+            </div>
+            <div className="extra-text">{props.weather.main.pressure}mb</div>
+            <div className="extra-heading">Pressure</div>
           </div>
         </div>
       </div>
