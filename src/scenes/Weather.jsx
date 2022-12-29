@@ -86,7 +86,6 @@ const Weather = () => {
     // Update state with the forcast data
     setForcastData(forcastDataResponse);
   }
-  // Get's current sky weather and displays this info is used to display icon depending on result
   return (
     <div>
       <div className="outter-wrapper">
@@ -114,7 +113,7 @@ const Weather = () => {
       {forcastData ? (
         <Forcast weather={weatherData} forcast={forcastData} />
       ) : null}
-      <MainIcon weather={weatherData} />
+      {weatherData ? <MainIcon weather={weatherData} /> : undefined}
     </div>
   );
 };
