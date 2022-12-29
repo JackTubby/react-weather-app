@@ -82,12 +82,20 @@ useEffect(function () {
     <div className="tabs-wrapper">
       <div className="tabs">
         <button
+          className={`tab ${checkActive(1, "active")}`}
+          onClick={() => {
+            handleClick(1);
+          }}
+        >
+          Today
+        </button>
+        <button
           className={`tab ${checkActive(2, "active")}`}
           onClick={() => {
             handleClick(2);
           }}
         >
-          Today
+          Tomorrow
         </button>
         <button
           className={`tab ${checkActive(3, "active")}`}
@@ -95,24 +103,14 @@ useEffect(function () {
             handleClick(3);
           }}
         >
-          Tomorrow
-        </button>
-        <button
-          className={`tab ${checkActive(4, "active")}`}
-          onClick={() => {
-            handleClick(4);
-          }}
-        >
           Next 7 Days
         </button>
       </div>
       <div className="forcast-wrapper">
         {activeIndex === 1 ? (
-          <FiveDay fiveDays={nextFiveForcast} />
-          ) : activeIndex === 2 ? (
           <Today todayForcast={todayForcast} />
-          ) : activeIndex === 3 ? (
-          <Tomorrow tomorrowForcast={tomorrowForcast} />
+          ) : activeIndex === 2 ? (
+            <Tomorrow tomorrowForcast={tomorrowForcast} />
           ) : (
           <FiveDay fiveDays={nextFiveForcast} /> 
         )
