@@ -1,5 +1,8 @@
 import "./currentWeather.css";
 import { CiTempHigh } from "react-icons/ci";
+import { BsWind, BsEye } from "react-icons/bs";
+import { WiHumidity } from "react-icons/wi";
+import { FaCloudscale } from "react-icons/fa";
 
 const CurrentWeather = (props) => {
   console.log(props)
@@ -57,28 +60,28 @@ const CurrentWeather = (props) => {
           </div>
           <div className="wind-wrapper">
             <div className="extra-icon">
-              <CiTempHigh color="white" />
+              <BsWind />
             </div>
             <div className="extra-text">{Math.round(props.weather.wind.speed)}mph</div>
             <div className="extra-heading">Wind</div>
           </div>
           <div className="humidity-wrapper">
             <div className="extra-icon">
-              <CiTempHigh />
+              <WiHumidity />
             </div>
             <div className="extra-text">{props.weather.main.humidity}%</div>
             <div className="extra-heading">Humdidity</div>
           </div>
           <div className="visibility-wrapper">
             <div className="extra-icon">
-              <CiTempHigh />
+              <BsEye />
             </div>
             <div className="extra-text">{props.weather.visibility / 1000}km</div>
             <div className="extra-heading">Visibility</div>
           </div>
           <div className="pressure-wrapper">
             <div className="extra-icon">
-              <CiTempHigh />
+              <FaCloudscale />
             </div>
             <div className="extra-text">{props.weather.main.pressure}mb</div>
             <div className="extra-heading">Pressure</div>
