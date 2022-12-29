@@ -40,6 +40,13 @@
     height: 450px;
     box-shadow: 10px 15px 34px 8px rgba(0,0,0,0.1);
 }
+@media only screen and (max-width: 650px) {
+    .square {
+        width: auto;
+        height: auto;
+        margin: 0 10px;
+    }
+}
 .weather-type {
     font-size: 32px;
     padding-top: 50px;
@@ -55,6 +62,12 @@
     -webkit-text-fill-color: transparent;
     padding-left: 40px;
 }
+@media only screen and (max-width: 650px) {
+    .temp {
+        font-size: 160px;
+        padding-bottom: 60px;
+    }
+}
 
 /* Extra Styling */
 .extra-wrapper {
@@ -65,8 +78,19 @@
     border-radius: 20px;
     text-align: center;
 }
+@media only screen and (max-width: 650px) {
+    .extra-wrapper {
+        display: block;
+        min-width: 50vw;
+    }
+}
 .extra-icon {
     font-size: 26px;
+}
+@media only screen and (max-width: 650px) {
+    .extra-icon {
+        padding-top: 20px;
+    }
 }
 .extra-text {
     font-weight: 600;

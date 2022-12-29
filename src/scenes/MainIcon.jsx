@@ -7,7 +7,7 @@ import thunderIcon from "../images/thunder-icon.svg";
 
 const MainIcon = (props) => {
   return (
-    <div className="current-icon-wrapper">
+    <div className="current-icon-wrapper mobile-current-icon">
       {props.weather.weather[0].main === "Clear" ? (
         <img className="current-icon" src={sunIcon} alt="Sun Icon" />
       ) : props.weather.weather[0].main === "Rain" ? (
