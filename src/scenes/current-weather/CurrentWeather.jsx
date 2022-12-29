@@ -5,7 +5,6 @@ import { WiHumidity } from "react-icons/wi";
 import { FaCloudscale } from "react-icons/fa";
 
 const CurrentWeather = (props) => {
-  console.log(props);
   const cloudData = props.weather.clouds.all;
   let clouds;
   if (cloudData > 50) {
