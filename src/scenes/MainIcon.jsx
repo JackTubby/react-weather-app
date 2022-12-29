@@ -14,6 +14,8 @@ const MainIcon = (props) => {
         <img className="current-icon" src={rainIcon} alt="Rain Icon" />
       ) : props.weather.weather[0].main === "Clouds" ? (
         <img className="current-icon" src={cloudIcon} alt="Clouds Icon" />
+      ) : props.weather.weather[0].main === "Mist" ? (
+        <img className="current-icon" src={cloudIcon} alt="Clouds Icon" />
       ) : (
         <img className="current-icon" src={thunderIcon} alt="Thunder Icon" />
       )}
