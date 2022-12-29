@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./forcast.css";
 
-import Info from "./current-weather-info/CurrentWeatherInfo"
 import Today from "./today-forcast/Today";
 import Tomorrow from "./tomorrow-forcast/Tomorrow";
 import FiveDay from "./five-day-forcast/FiveDay";
@@ -83,14 +82,6 @@ useEffect(function () {
     <div className="tabs-wrapper">
       <div className="tabs">
         <button
-          className={`tab ${checkActive(1, "active")}`}
-          onClick={() => {
-            handleClick(1);
-          }}
-        >
-          More Info
-        </button>
-        <button
           className={`tab ${checkActive(2, "active")}`}
           onClick={() => {
             handleClick(2);
@@ -117,7 +108,7 @@ useEffect(function () {
       </div>
       <div className="forcast-wrapper">
         {activeIndex === 1 ? (
-          <Info weather={props.weather} />
+          <FiveDay fiveDays={nextFiveForcast} />
           ) : activeIndex === 2 ? (
           <Today todayForcast={todayForcast} />
           ) : activeIndex === 3 ? (
