@@ -2,6 +2,9 @@ import CurrentWeather from "./current-weather/CurrentWeather";
 import Forcast from "./forcast/Forcast";
 import "./styles.css";
 import sunIcon from "../images/sun-icon.svg";
+import cloudIcon from "../images/cloudy-icon.svg";
+import rainIcon from "../images/rain-icon.svg";
+import thunderIcon from "../images/thunder-icon.svg";
 import { useEffect, useState } from "react";
 
 const Weather = () => {
@@ -86,6 +89,8 @@ const Weather = () => {
     // Update state with the forcast data
     setForcastData(forcastDataResponse);
   }
+  // Get's current sky weather and displays this info is used to display icon depending on result
+  const sky = weatherData.weather[0].main;
   return (
     <div>
       <div className="outter-wrapper">
@@ -114,11 +119,16 @@ const Weather = () => {
         <Forcast weather={weatherData} forcast={forcastData} />
       ) : null}
       <div className="current-icon-wrapper">
-        <img
-          className="current-icon"
-          src={sunIcon}
-          alt="Kiwi standing on oval"
-        />
+        {sky === "Clear" ? (
+          <img className="current-icon" src={sunIcon} alt="Sun Icon" />
+        ) : sky === "Rain" ? (
+          <img className="current-icon" src={rainIcon} alt="Rain Icon" />
+        ) : sky === "Clouds" ? (
+          <img className="current-icon" src={cloudIcon} alt="Clouds Icon" />
+        ): (
+          <img className="current-icon" src={thunderIcon} alt="Thunder Icon" />
+        )}
+
       </div>
     </div>
   );
