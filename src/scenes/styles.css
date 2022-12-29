@@ -5,6 +5,7 @@
 
 .search-wrapper {
     display: flex;
+    padding-left: 65px;
 }
 
 .input-wrapper {
