@@ -92,6 +92,9 @@
     .search-wrapper {
         padding: 0;
     }
+    .input-weather {
+        min-width: auto;
+    }
 }
 @media only screen and (max-width: 725px) {
     .search-wrapper {
@@ -107,8 +110,5 @@
     }
     .button-search-wrapper {
         margin-left: 0;
-    }
-    .input-weather {
-        width: auto;
     }
 }
