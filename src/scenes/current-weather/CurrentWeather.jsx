@@ -31,7 +31,7 @@ const CurrentWeather = (props) => {
         <div className="header-wrapper">
           <div className="location">{props.weather.name}</div>
           <div className="colour-mode">
-            <label className="toggle">
+            {/* <label className="toggle">
               <input
                 className="toggle-input"
                 name=""
@@ -39,7 +39,7 @@ const CurrentWeather = (props) => {
                 id="myToggle"
               />
               <div className="toggle-fill"></div>
-            </label>
+            </label> */}
           </div>
         </div>
         <div className="main-wrapper">
